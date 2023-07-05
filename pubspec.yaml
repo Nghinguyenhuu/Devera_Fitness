@@ -1,4 +1,4 @@
-name: gosop
+name: devera_fitness
 description: An E-commerce demo app
 
 # The following line prevents the package from being accidentally published to
@@ -148,12 +148,13 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
-#  fonts:
-#    - family: SF Pro Text
-#      fonts:
-#        - asset: assets/fonts/SF-Pro-Text-Bold.otf
-#        - asset: assets/fonts/SF-Pro-Text-Medium.otf
-#        - asset: assets/fonts/SF-Pro-Text-Regular.otf
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+        - asset: assets/fonts/Poppins-Medium.ttf
+        - asset: assets/fonts/Poppins-Regular.ttf
 
 flutter_intl:
   enabled: true

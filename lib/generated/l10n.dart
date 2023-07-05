@@ -69,6 +69,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Everybody Can Train`
+  String get slogan {
+    return Intl.message(
+      'Everybody Can Train',
+      name: 'slogan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Track Your Goal`
+  String get on_boarding_title_1 {
+    return Intl.message(
+      'Track Your Goal',
+      name: 'on_boarding_title_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Burn`
+  String get on_boarding_title_2 {
+    return Intl.message(
+      'Get Burn',
+      name: 'on_boarding_title_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Eat Well`
+  String get on_boarding_title_3 {
+    return Intl.message(
+      'Eat Well',
+      name: 'on_boarding_title_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Improve Sleep  Quality`
+  String get on_boarding_title_4 {
+    return Intl.message(
+      'Improve Sleep  Quality',
+      name: 'on_boarding_title_4',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals`
+  String get on_boarding_description_1 {
+    return Intl.message(
+      'Don\'t worry if you have trouble determining your goals, We can help you determine your goals and track your goals',
+      name: 'on_boarding_description_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever`
+  String get on_boarding_description_2 {
+    return Intl.message(
+      'Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever',
+      name: 'on_boarding_description_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let's start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun`
+  String get on_boarding_description_3 {
+    return Intl.message(
+      'Let\'s start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun',
+      name: 'on_boarding_description_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Improve the quality of your sleep with us, good quality sleep can bring a good mood in the morning`
+  String get on_boarding_description_4 {
+    return Intl.message(
+      'Improve the quality of your sleep with us, good quality sleep can bring a good mood in the morning',
+      name: 'on_boarding_description_4',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

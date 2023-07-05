@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-// import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../core/core.dart';
 
@@ -8,16 +7,19 @@ class NetworkDependencies {
     final authorizationInterceptor = AuthorizationInterceptor();
 
     // network checker
-    // injector.registerLazySingleton(() => InternetConnectionChecker());
+    // injector.registerLazySingleton(() => InternetConnectionCheckerPlus());
     injector.registerLazySingleton<INetworkInfo>(() => NetworkInfo());
 
     // network utility for request
     injector.registerLazySingleton<INetworkUtility>(
-      () => NetworkUtility(
-        'BASE_URL',
+          () => NetworkUtility(
+        /// TODO: Add BASE_URL when server is available
+        // 'BASE_URL',
+        '',
         interceptors: [authorizationInterceptor],
       ),
       instanceName: NetworkConstant.authorizationDomain,
     );
   }
 }
+

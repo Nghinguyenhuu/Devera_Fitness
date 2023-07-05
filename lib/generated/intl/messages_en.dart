@@ -24,6 +24,21 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "change_language":
             MessageLookupByLibrary.simpleMessage("Change language"),
-        "hello_world": MessageLookupByLibrary.simpleMessage("Hello World")
+        "hello_world": MessageLookupByLibrary.simpleMessage("Hello World"),
+        "on_boarding_description_1": MessageLookupByLibrary.simpleMessage(
+            "Don\'t worry if you have trouble determining your goals, We can help you determine your goals and track your goals"),
+        "on_boarding_description_2": MessageLookupByLibrary.simpleMessage(
+            "Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever"),
+        "on_boarding_description_3": MessageLookupByLibrary.simpleMessage(
+            "Let\'s start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun"),
+        "on_boarding_description_4": MessageLookupByLibrary.simpleMessage(
+            "Improve the quality of your sleep with us, good quality sleep can bring a good mood in the morning"),
+        "on_boarding_title_1":
+            MessageLookupByLibrary.simpleMessage("Track Your Goal"),
+        "on_boarding_title_2": MessageLookupByLibrary.simpleMessage("Get Burn"),
+        "on_boarding_title_3": MessageLookupByLibrary.simpleMessage("Eat Well"),
+        "on_boarding_title_4":
+            MessageLookupByLibrary.simpleMessage("Improve Sleep  Quality"),
+        "slogan": MessageLookupByLibrary.simpleMessage("Everybody Can Train")
       };
 }

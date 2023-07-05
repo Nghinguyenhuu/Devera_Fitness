@@ -1,3 +1,4 @@
+import 'theme/theme_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -28,6 +29,7 @@ class _AppState extends State<App> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.splash,
+      theme: AppThemes().lightTheme,
       onGenerateRoute: (settings) => Routes.getRoute(settings),
       supportedLocales: S.delegate.supportedLocales,
       localizationsDelegates: [

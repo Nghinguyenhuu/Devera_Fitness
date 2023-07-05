@@ -10,6 +10,7 @@ abstract class BaseState<T extends StatefulWidget, B extends BaseBloc> extends S
   B get bloc;
 
   S get localization => S.of(context);
+  ThemeData get theme => Theme.of(context);
 
   bool get dismissKeyboardWhenClickOutside => false;
 

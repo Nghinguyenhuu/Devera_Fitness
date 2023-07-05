@@ -1,4 +1,13 @@
 {
     "hello_world" : "Hello World",
-    "change_language" : "Change language"
+    "change_language" : "Change language",
+    "slogan" : "Everybody Can Train",
+    "on_boarding_title_1": "Track Your Goal",
+    "on_boarding_title_2": "Get Burn",
+    "on_boarding_title_3": "Eat Well",
+    "on_boarding_title_4": "Improve Sleep  Quality",
+    "on_boarding_description_1": "Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals",
+    "on_boarding_description_2": "Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever",
+    "on_boarding_description_3": "Let's start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun",
+    "on_boarding_description_4": "Improve the quality of your sleep with us, good quality sleep can bring a good mood in the morning"
 }
