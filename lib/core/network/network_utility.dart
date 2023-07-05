@@ -27,9 +27,9 @@ class NetworkUtility implements INetworkUtility {
     int sendTimeout = 30000,
   }) {
     BaseOptions _options = BaseOptions(
-      // connectTimeout: connectTimeout,
-      // receiveTimeout: receiveTimeout,
-      // sendTimeout: sendTimeout,
+      connectTimeout: Duration(milliseconds: connectTimeout),
+      receiveTimeout: Duration(milliseconds: receiveTimeout),
+      sendTimeout: Duration(milliseconds: sendTimeout),
       responseType: responseType,
       headers: {},
       validateStatus: (_) {
