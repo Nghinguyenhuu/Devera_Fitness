@@ -46,7 +46,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     alignment: Alignment.bottomRight,
                     child: InkWellWrapper(
                       borderRadius: BorderRadius.circular(25),
-                      shape: BoxShape.circle,
                       onTap: widget.onTap,
                       child: Container(
                         width: 50,
