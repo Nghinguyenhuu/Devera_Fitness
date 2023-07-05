@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
+// import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import '../core/core.dart';
 
@@ -8,8 +8,8 @@ class NetworkDependencies {
     final authorizationInterceptor = AuthorizationInterceptor();
 
     // network checker
-    injector.registerLazySingleton(() => InternetConnectionChecker());
-    injector.registerLazySingleton<INetworkInfo>(() => NetworkInfo(injector()));
+    // injector.registerLazySingleton(() => InternetConnectionChecker());
+    injector.registerLazySingleton<INetworkInfo>(() => NetworkInfo());
 
     // network utility for request
     injector.registerLazySingleton<INetworkUtility>(

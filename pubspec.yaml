@@ -56,6 +56,9 @@ dependencies:
   # svg image
   flutter_svg: ^2.0.2
 
+  #AZ listview
+  azlistview: ^2.0.0
+
   # WebView
   flutter_inappwebview: ^5.7.2+3
 
