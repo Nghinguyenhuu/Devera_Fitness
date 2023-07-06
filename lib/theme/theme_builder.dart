@@ -25,7 +25,7 @@ class AppThemes {
     titleLarge: TextStyle(fontWeight: FontWeight.w500, fontSize: 22.0, height: 1.5, color: AppColors.black),
     titleMedium: TextStyle(fontWeight: FontWeight.w500, fontSize: 20.0, height: 1.5, color: AppColors.black),
     titleSmall: TextStyle(fontWeight: FontWeight.w500, fontSize: 18.0, height: 1.5, color: AppColors.black),
-    bodyLarge: TextStyle(fontWeight: FontWeight.w500, fontSize: 20.0, height: 1.5, color: AppColors.black),
+    bodyLarge: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.0, height: 1.5, color: AppColors.black),
     bodyMedium: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.0, height: 1.5, color: AppColors.black),
     bodySmall: TextStyle(fontWeight: FontWeight.w400, fontSize: 16.0, height: 1.5, color: AppColors.black),
     labelLarge: TextStyle(fontWeight: FontWeight.w400, fontSize: 14.0, height: 1.5, color: AppColors.black),

@@ -118,7 +118,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             AppButton(
               padding: EdgeInsets.symmetric(vertical: 18),
               onTap: (){
-                Navigator.of(context).pushNamed(Routes.home);
+                Navigator.of(context).pushNamed(Routes.signUp);
               },
               borderRadius: BorderRadius.circular(100),
               child: Text(

@@ -1,10 +1,7 @@
-import 'package:devera_fitness/resources/gradient.dart';
+import '../../../resources/gradient.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../blocs/blocs.dart';
-import '../../../constants.dart';
 import '../../../core/core.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../resources/colors.dart';

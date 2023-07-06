@@ -6,4 +6,8 @@ class AppGradient {
     AppColors.brandLight,
     AppColors.brandDark,
   ]);
+  static LinearGradient purpleGradient = LinearGradient(colors: [
+    AppColors.secondaryLight,
+    AppColors.secondaryDark,
+  ]);
 }
