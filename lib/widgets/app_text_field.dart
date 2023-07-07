@@ -54,7 +54,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: TextFormField(
         maxLength: widget.maxLength,
         inputFormatters: widget.inputFormatters,
@@ -78,31 +78,33 @@ class _AppTextFieldState extends State<AppTextField> {
             hintText: widget.hintText,
             hintStyle: Theme.of(context).textTheme.labelMedium?.copyWith(color: AppColors.gray),
             border: _buildOutlineInputBorder(),
-            errorStyle: TextStyle(fontSize: 0),
+            errorStyle: TextStyle(height: 0),
             focusedBorder: _buildOutlineInputBorder(),
             enabledBorder: _buildOutlineInputBorder(),
             disabledBorder: _buildOutlineInputBorder(),
+            errorBorder: _buildOutlineInputBorder(color: Colors.red),
             fillColor: AppColors.border,
             prefixIcon: Padding(
               padding: const EdgeInsets.only(left: 16, right: 10),
               child: widget.prefixIcon,
             ),
-            prefixIconConstraints: BoxConstraints(maxHeight: 60, maxWidth: 44),
-            suffixIconConstraints: BoxConstraints(maxHeight: 60, maxWidth: 50),
+            constraints: BoxConstraints(maxHeight: 48),
+            prefixIconConstraints: BoxConstraints(maxWidth: 60),
+            suffixIconConstraints: BoxConstraints(maxWidth: 60),
             suffixIcon: widget.isPassword ? buildHideIcon() : widget.suffixIcon,
-            counter: SizedBox(),
+            counterText: '',
             filled: true,
-            isDense: true,
             contentPadding: EdgeInsets.all(16)),
       ),
     );
   }
 
-  _buildOutlineInputBorder() {
+  _buildOutlineInputBorder({Color color = AppColors.border}) {
     return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
-          color: AppColors.border,
+          width: 2,
+          color: color,
         ));
   }
 

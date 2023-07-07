@@ -1,8 +1,10 @@
+import 'package:rxdart/rxdart.dart';
+
+import '../../../router/router.dart';
 import '../../../widgets/ink_well_wrapper.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../resources/resources.dart';
@@ -17,9 +19,11 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   ThemeData get theme => Theme.of(context);
   final GlobalKey<FormState> _formKey = GlobalKey();
+  BehaviorSubject<bool?> errorStream = BehaviorSubject.seeded(false);
 
   @override
   void dispose() {
+    errorStream.close();
     super.dispose();
   }
 
@@ -55,16 +59,33 @@ class _SignUpPageState extends State<SignUpPage> {
                     ],
                   ),
                 ),
+                StreamBuilder<bool?>(
+                    stream: errorStream,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData && snapshot.data == true) {
+                        return Text(
+                          'Please fill the entry form',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.red,
+                          ),
+                        );
+                      }
+                      return SizedBox();
+                    }),
                 SizedBox(height: 150),
                 Assets.images.svg.icGoogle.svg(),
                 AppButton(
                   onTap: () {
-                    // if(_formKey.currentState?.validate() == true){
-                    //   ///TODO: Navigator to login page
-                    // }
+                    if(_formKey.currentState?.validate() == true){
+                      errorStream.add(false);
+                        Navigator.of(context).pushReplacementNamed(Routes.registerProfile);
+                    }else{
+                      errorStream.add(true);
+                    }
                   },
                   borderRadius: BorderRadius.circular(100),
-                  margin: EdgeInsets.symmetric(vertical: 10),
                   child: Text(
                     'Register',
                     style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600, color: AppColors.white),
@@ -91,7 +112,6 @@ class _SignUpPageState extends State<SignUpPage> {
         color: AppColors.grayDark,
         fit: BoxFit.cover,
       ),
-      inputFormatters: [isPassword ? FilteringTextInputFormatter.digitsOnly : FilteringTextInputFormatter.allow(RegExp(r'[a-zA-Z ]'))],
       isPassword: isPassword,
       hintText: hint,
     );

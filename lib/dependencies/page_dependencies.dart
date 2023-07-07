@@ -10,5 +10,6 @@ class PageDependencies {
     injector.registerFactory<Widget>(() => HomePage(), instanceName: Routes.home);
     injector.registerFactory<Widget>(() => OnBoardingPage(), instanceName: Routes.onBoarding);
     injector.registerFactory<Widget>(() => SignUpPage(), instanceName: Routes.signUp);
+    injector.registerFactory<Widget>(() => RegisterProfilePage(), instanceName: Routes.registerProfile);
   }
 }
