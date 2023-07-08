@@ -75,6 +75,10 @@ dependencies:
   #cached_network_image:
   cached_network_image: ^3.2.3
 
+  #carousel slider:
+  carousel_slider: ^4.2.1
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,14 +1,14 @@
-import 'package:rxdart/rxdart.dart';
-
-import '../../../resources/resources.dart';
-import '../../../widgets/app_text_field.dart';
-import '../../../widgets/custom_date_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rxdart/rxdart.dart';
 
 import '../../../gen/assets.gen.dart';
+import '../../../resources/resources.dart';
+import '../../../router/router.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_drop_down.dart';
+import '../../../widgets/app_text_field.dart';
+import '../../../widgets/custom_date_picker.dart';
 
 class RegisterProfilePage extends StatefulWidget {
   const RegisterProfilePage({super.key});
@@ -18,7 +18,6 @@ class RegisterProfilePage extends StatefulWidget {
 }
 
 class _RegisterProfilePageState extends State<RegisterProfilePage> {
-
   BehaviorSubject<bool?> errorStream = BehaviorSubject.seeded(false);
   final GlobalKey<FormState> _globalKey = GlobalKey();
 
@@ -54,11 +53,11 @@ class _RegisterProfilePageState extends State<RegisterProfilePage> {
               AppButton(
                 padding: EdgeInsets.symmetric(vertical: 16),
                 borderRadius: BorderRadius.circular(100),
-                onTap: (){
-                  if(_globalKey.currentState?.validate() == true){
+                onTap: () {
+                  if (_globalKey.currentState?.validate() == true) {
                     errorStream.add(false);
-                    // Navigator.of(context).pushNamed(routeName);
-                  }else{
+                    Navigator.of(context).pushNamed(Routes.registerGoal);
+                  } else {
                     errorStream.add(true);
                   }
                 },

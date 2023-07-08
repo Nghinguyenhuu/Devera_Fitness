@@ -13,6 +13,8 @@ class Routes {
 
   static String get registerProfile => '/registerProfile';
 
+  static String get registerGoal => '/registerGoal';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     try {
