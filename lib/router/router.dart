@@ -15,6 +15,10 @@ class Routes {
 
   static String get registerGoal => '/registerGoal';
 
+  static String get registerSuccess => '/registerSuccess';
+
+  static String get login => '/login';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     try {

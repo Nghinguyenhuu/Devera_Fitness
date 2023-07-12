@@ -1,4 +1,3 @@
-import 'widgets/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../gen/assets.gen.dart';
@@ -6,6 +5,7 @@ import '../../../generated/l10n.dart';
 import '../../../resources/colors.dart';
 import '../../../router/router.dart';
 import '../../../widgets/app_button.dart';
+import 'widgets/onboarding_view.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({super.key});
@@ -118,7 +118,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             AppButton(
               padding: EdgeInsets.symmetric(vertical: 18),
               onTap: (){
-                Navigator.of(context).pushNamed(Routes.signUp);
+                Navigator.of(context).pushReplacementNamed(Routes.signUp);
               },
               borderRadius: BorderRadius.circular(100),
               child: Text(

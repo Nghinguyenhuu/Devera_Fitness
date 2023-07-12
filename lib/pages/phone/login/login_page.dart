@@ -2,29 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../gen/assets.gen.dart';
-import '../../../resources/resources.dart';
+import '../../../resources/colors.dart';
+import '../../../resources/gradient.dart';
 import '../../../router/router.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_text_field.dart';
 import '../../../widgets/ink_well_wrapper.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _LoginPageState extends State<LoginPage> {
   ThemeData get theme => Theme.of(context);
-  final GlobalKey<FormState> _formKey = GlobalKey();
+  final GlobalKey<FormState> _key = GlobalKey();
   BehaviorSubject<bool?> errorStream = BehaviorSubject.seeded(false);
-
-  @override
-  void dispose() {
-    errorStream.close();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,19 +36,18 @@ class _SignUpPageState extends State<SignUpPage> {
                 textAlign: TextAlign.center,
               ),
               Text(
-                'Create an Account',
+                'Welcome Back',
                 style: theme.textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),
                 textAlign: TextAlign.center,
               ),
+              SizedBox(height: 30),
               Expanded(
                 child: Form(
-                  key: _formKey,
+                  key: _key,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      buildTextField(prefixPath: Assets.images.svg.icProfile, hint: 'First Name'),
-                      buildTextField(prefixPath: Assets.images.svg.icProfile, hint: 'Last Name'),
                       buildTextField(prefixPath: Assets.images.svg.icMessage, hint: 'Email'),
                       buildTextField(prefixPath: Assets.images.svg.icLock, hint: 'Password', isPassword: true),
                       StreamBuilder<bool?>(
@@ -71,25 +65,43 @@ class _SignUpPageState extends State<SignUpPage> {
                             }
                             return SizedBox();
                           }),
+                      InkWellWrapper(
+                          onTap: () {
+                            ///TODO: navigator to forgot password
+                          },
+                          child: Text(
+                            'Forgot your password?',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: AppColors.gray,
+                              decoration: TextDecoration.underline,
+                            ),
+                            textAlign: TextAlign.center,
+                          )),
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 150),
-              Assets.images.svg.icGoogle.svg(),
               AppButton(
                 onTap: () {
-                  if (_formKey.currentState?.validate() == true) {
+                  if (_key.currentState?.validate() == true) {
                     errorStream.add(false);
-                    Navigator.of(context).pushReplacementNamed(Routes.registerProfile);
+                    // Navigator.of(context).pushReplacementNamed(Routes.registerProfile);
                   } else {
                     errorStream.add(true);
                   }
                 },
                 borderRadius: BorderRadius.circular(100),
-                child: Text(
-                  'Register',
-                  style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600, color: AppColors.white),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Assets.images.svg.icLogin.svg(),
+                    SizedBox(width: 10),
+                    Text(
+                      'Login',
+                      style: theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w600, color: AppColors.white),
+                    ),
+                  ],
                 ),
                 padding: EdgeInsets.symmetric(vertical: 18),
               ),
@@ -173,15 +185,15 @@ class _SignUpPageState extends State<SignUpPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'Already have an account? ',
+          "Don't have an account yet?",
           style: theme.textTheme.labelLarge,
         ),
         InkWellWrapper(
           onTap: () {
-            Navigator.pushReplacementNamed(context, Routes.login);
+            Navigator.pushReplacementNamed(context, Routes.signUp);
           },
           child: Text(
-            'Login',
+            'Register',
             style: theme.textTheme.labelLarge?.copyWith(
               foreground: Paint()
                 ..shader = AppGradient.purpleGradient.createShader(

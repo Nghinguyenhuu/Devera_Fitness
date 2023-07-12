@@ -5,6 +5,7 @@ import '../../../gen/assets.gen.dart';
 import '../../../resources/colors.dart';
 import '../../../resources/gradient.dart';
 import '../../../resources/shadow.dart';
+import '../../../router/router.dart';
 import '../../../widgets/app_button.dart';
 
 class RegisterGoalPage extends StatefulWidget {
@@ -74,7 +75,9 @@ class _RegisterGoalPageState extends State<RegisterGoalPage> {
               AppButton(
                 padding: EdgeInsets.symmetric(vertical: 16),
                 borderRadius: BorderRadius.circular(100),
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, Routes.registerSuccess);
+                },
                 child: Text(
                   'Confirm',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: AppColors.white),
