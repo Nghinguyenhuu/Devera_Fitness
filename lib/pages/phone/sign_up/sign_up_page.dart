@@ -104,9 +104,9 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Widget buildTextField({required SvgGenImage prefixPath, required String hint, bool isPassword = false}) {
+  Widget buildTextField({SvgGenImage? prefixPath, required String hint, bool isPassword = false}) {
     return AppTextField(
-      prefixIcon: prefixPath.svg(
+      prefixIcon: prefixPath?.svg(
         width: 18,
         height: 18,
         color: AppColors.grayDark,

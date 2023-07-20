@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../resources/colors.dart';
+import '../../../router/router.dart';
 import '../../../widgets/app_button.dart';
 
 class RegisterSuccessPage extends StatefulWidget {
@@ -42,7 +43,9 @@ class _RegisterSuccessPageState extends State<RegisterSuccessPage> {
                 ],
               )),
               AppButton(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, Routes.home);
+                  },
                   borderRadius: BorderRadius.circular(100),
                   padding: EdgeInsets.symmetric(vertical: 18),
                   child: Text(

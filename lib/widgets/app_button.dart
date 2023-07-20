@@ -1,4 +1,3 @@
-import 'ink_well_wrapper.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../resources/colors.dart';
@@ -7,9 +6,17 @@ class AppButton extends StatelessWidget {
   final Widget child;
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry? padding;
+  final Gradient? gradient;
   final Function()? onTap;
 
-  const AppButton({super.key, required this.child, this.padding, this.borderRadius, this.onTap});
+  const AppButton({
+    super.key,
+    required this.child,
+    this.padding,
+    this.borderRadius,
+    this.onTap,
+    this.gradient,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +24,7 @@ class AppButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [AppColors.brandLight, AppColors.brandDark]),
+          gradient: gradient ?? LinearGradient(colors: [AppColors.brandLight, AppColors.brandDark]),
           boxShadow: [
             BoxShadow(
               color: AppColors.brandDark.withOpacity(0.5),

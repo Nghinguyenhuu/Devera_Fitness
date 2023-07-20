@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+
 import 'colors.dart';
 
 class AppGradient {
@@ -8,6 +9,10 @@ class AppGradient {
   ]);
   static LinearGradient purpleGradient = LinearGradient(colors: [
     AppColors.secondaryLight,
+    AppColors.secondaryDark,
+  ]);
+  static LinearGradient progressGradient = LinearGradient(colors: [
+    AppColors.brandDark,
     AppColors.secondaryDark,
   ]);
 }

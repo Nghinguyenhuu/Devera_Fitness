@@ -77,6 +77,15 @@ dependencies:
 
   #carousel slider:
   carousel_slider: ^4.2.1
+  #flutter chart:
+  fl_chart: ^0.63.0
+
+  dotted_line: ^3.2.2
+
+
+  #stepper
+  easy_stepper: ^0.7.2
+
 
 
 dev_dependencies:
