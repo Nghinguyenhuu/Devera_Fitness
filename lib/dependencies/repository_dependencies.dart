@@ -9,5 +9,6 @@ class RepositoryDependencies {
           localService: injector(),
           networkInfo: injector(),
         ));
+    injector.registerFactory<INotificationRepository>(() => NotificationRepository(remoteService: injector()));
   }
 }

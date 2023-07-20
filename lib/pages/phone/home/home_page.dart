@@ -5,6 +5,7 @@ import '../../../gen/assets.gen.dart';
 import '../../../resources/colors.dart';
 import '../../../resources/gradient.dart';
 import '../../../resources/shadow.dart';
+import '../../../router/router.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/ink_well_wrapper.dart';
 import '../../pages.dart';
@@ -25,7 +26,14 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [buildHeader(), buildBanner(), buildTodayTarget(), ActivityStatus(), WorkoutProgress(), LatestWorkout()],
+            children: [
+              buildHeader(),
+              buildBanner(),
+              buildTodayTarget(),
+              ActivityStatus(),
+              WorkoutProgress(),
+              LatestWorkout(),
+            ],
           ),
         ),
       ),
@@ -52,6 +60,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         InkWellWrapper(
+          onTap: () {
+            Navigator.pushNamed(context, Routes.notification);
+          },
           borderRadius: BorderRadius.circular(8),
           child: Container(
             width: 40,

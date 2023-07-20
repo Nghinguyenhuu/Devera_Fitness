@@ -19,6 +19,8 @@ class Routes {
 
   static String get login => '/login';
 
+  static String get notification => '/notification';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     try {

@@ -1,10 +1,10 @@
-import 'package:devera_fitness/resources/gradient.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../resources/colors.dart';
+import '../../../../resources/gradient.dart';
 import '../../../../resources/shadow.dart';
 import '../../../../widgets/ink_well_wrapper.dart';
 import '../../../pages.dart';
