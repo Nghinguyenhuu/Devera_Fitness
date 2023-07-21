@@ -137,30 +137,35 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildTodayTarget() {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        gradient: LinearGradient(colors: [
-          AppColors.brandLight.withOpacity(0.2),
-          AppColors.brandDark.withOpacity(0.2),
-        ]),
-      ),
-      padding: EdgeInsets.symmetric(vertical: 14, horizontal: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            'Today Target',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-          ),
-          AppButton(
-              borderRadius: BorderRadius.circular(50),
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-              child: Text(
-                'Check',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.white),
-              ))
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, Routes.activity);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          gradient: LinearGradient(colors: [
+            AppColors.brandLight.withOpacity(0.2),
+            AppColors.brandDark.withOpacity(0.2),
+          ]),
+        ),
+        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Today Target',
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+            ),
+            AppButton(
+                borderRadius: BorderRadius.circular(50),
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                child: Text(
+                  'Check',
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.white),
+                ))
+          ],
+        ),
       ),
     );
   }

@@ -2,13 +2,13 @@ import 'package:equatable/equatable.dart';
 
 import '../../extensions/extensions.dart';
 
-class NotificationModel extends Equatable {
+class ActivityModel extends Equatable {
   int? id;
   String? image;
   String? title;
   DateTime? date;
 
-  NotificationModel({this.id, this.image, this.title, this.date});
+  ActivityModel({this.id, this.image, this.title, this.date});
 
   Map<String, dynamic> toJson() {
     var data = <String, dynamic>{};
@@ -19,7 +19,7 @@ class NotificationModel extends Equatable {
     return data;
   }
 
-  NotificationModel.fromJson(Map<String, dynamic>? json) {
+  ActivityModel.fromJson(Map<String, dynamic>? json) {
     this.id = json?['id'];
     this.image = json?['image'];
     this.title = json?['title'];

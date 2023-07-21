@@ -32,7 +32,7 @@ class _NotificationPageState extends BaseState<NotificationPage, NotificationBlo
           children: [
             _buildAppBar(),
             Expanded(
-              child: StreamBuilder<List<NotificationModel>?>(
+              child: StreamBuilder<List<ActivityModel>?>(
                   stream: bloc.notificationsStream,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
@@ -104,7 +104,7 @@ class _NotificationPageState extends BaseState<NotificationPage, NotificationBlo
     );
   }
 
-  Widget buildNotificationItem(NotificationModel notify) {
+  Widget buildNotificationItem(ActivityModel notify) {
     String subTitle = '';
 
     Duration timeAgo = DateTime.now().difference(notify.date ?? DateTime.now());

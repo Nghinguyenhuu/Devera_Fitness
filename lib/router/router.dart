@@ -21,6 +21,8 @@ class Routes {
 
   static String get notification => '/notification';
 
+  static String get activity => '/activity';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     try {

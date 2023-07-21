@@ -2,16 +2,16 @@ import '../../gen/assets.gen.dart';
 import '../responses/responses.dart';
 import 'interfaces/interfaces.dart';
 
-class NotificationRemoteService implements INotificationRemoteService {
+class ActivityRemoteService implements IActivityRemoteService {
   @override
-  Future<NotificationResponse> getResponse() async {
-    final response = Map<String, dynamic>.from(notification);
-    return NotificationResponse.fromJson(response);
+  Future<ActivityResponse> getResponse() async {
+    final response = Map<String, dynamic>.from(activities);
+    return ActivityResponse.fromJson(response);
   }
 }
 
-Map<String, dynamic> notification = {
-  "notifications": [
+Map<String, dynamic> activities = {
+  "activities": [
     {"id": 1, "title": "Hey, it’s time for lunch", "date": "2023-07-20 15:52:29.000", "image": Assets.images.png.imgLunch1.path},
     {"id": 2, "title": "Don’t miss your lowerbody workout", "date": "2023-07-20 12:52:29.000", "image": Assets.images.png.imgWorkout1.path},
     {"id": 3, "title": "Hey, let’s add some meals for your b..", "date": "2023-07-20 12:52:29.000", "image": Assets.images.png.imgLunch2.path},

@@ -7,5 +7,6 @@ class BlocDependencies {
     injector.registerLazySingleton(() => AppBloc());
     injector.registerFactory<SplashBloc>(() => SplashBloc(injector()));
     injector.registerFactory<NotificationBloc>(() => NotificationBloc(injector()));
+    injector.registerFactory<ActivityBloc>(() => ActivityBloc(injector()));
   }
 }

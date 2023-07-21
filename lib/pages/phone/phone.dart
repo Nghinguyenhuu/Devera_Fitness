@@ -1,3 +1,4 @@
+export 'activity/activity.dart';
 export 'home/home.dart';
 export 'login/login.dart';
 export 'notification/notification.dart';

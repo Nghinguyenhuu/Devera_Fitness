@@ -14,10 +14,11 @@ class PageDependencies {
     injector.registerFactory<Widget>(() => RegisterGoalPage(), instanceName: Routes.registerGoal);
     injector.registerFactory<Widget>(() => RegisterSuccessPage(), instanceName: Routes.registerSuccess);
     injector.registerFactory<Widget>(() => LoginPage(), instanceName: Routes.login);
+    injector.registerFactory<Widget>(() => NotificationPage(bloc: injector()), instanceName: Routes.notification);
     injector.registerFactory<Widget>(
-        () => NotificationPage(
+        () => ActivityTrackerPage(
               bloc: injector(),
             ),
-        instanceName: Routes.notification);
+        instanceName: Routes.activity);
   }
 }

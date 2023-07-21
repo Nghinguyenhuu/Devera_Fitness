@@ -1,19 +1,18 @@
 import 'package:equatable/equatable.dart';
 
-import '../../data/models/notification_model.dart';
+import '../../data/models/models.dart';
 
 class NotificationState extends Equatable {
   final bool? success;
   final String? error;
-  final List<NotificationModel>? notifications;
+  final List<ActivityModel>? notifications;
 
   NotificationState({
     NotificationState? state,
     bool? success,
     String? error,
-    List<NotificationModel>? notifications,
-  })
-      : success = success ?? state?.success,
+    List<ActivityModel>? notifications,
+  })  : success = success ?? state?.success,
         notifications = notifications ?? state?.notifications,
         error = error ?? state?.error;
 

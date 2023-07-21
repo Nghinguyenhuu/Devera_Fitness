@@ -1,7 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../data/models/workout_model.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../../resources/colors.dart';
 import '../../../../resources/gradient.dart';
@@ -121,18 +121,4 @@ class _LatestWorkoutState extends State<LatestWorkout> {
       ),
     );
   }
-}
-
-class WorkoutModel extends Equatable {
-  final int? id;
-  final String? name;
-  final int? caloriesBurn;
-  final int? minutes;
-  final double? progress;
-  final String? img;
-
-  const WorkoutModel({this.progress, this.id, this.name, this.caloriesBurn, this.minutes, this.img});
-
-  @override
-  List<Object?> get props => [id, name, progress, caloriesBurn, minutes, img];
 }
