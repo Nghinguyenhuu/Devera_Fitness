@@ -23,6 +23,8 @@ class Routes {
 
   static String get activity => '/activity';
 
+  static String get profile => '/profile';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     try {
