@@ -1,13 +1,13 @@
-import 'package:devera_fitness/resources/gradient.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../gen/assets.gen.dart';
 import '../../../../resources/colors.dart';
-import '../../../../widgets/app_button.dart';
+import '../../../../resources/gradient.dart';
 
 class WorkoutProgress extends StatefulWidget {
-  const WorkoutProgress({super.key});
+  final bool lightTheme;
+
+  const WorkoutProgress({super.key, this.lightTheme = false});
 
   @override
   State<WorkoutProgress> createState() => _WorkoutProgressState();
@@ -15,7 +15,6 @@ class WorkoutProgress extends StatefulWidget {
 
 class _WorkoutProgressState extends State<WorkoutProgress> {
   List<String> weekDays = const ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-
   List<double> yValues = const [0, 20, 40, 60, 80, 100];
 
   @override
@@ -23,31 +22,7 @@ class _WorkoutProgressState extends State<WorkoutProgress> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-                child: Text(
-              'Workout Progress',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            )),
-            AppButton(
-              padding: EdgeInsets.all(10),
-              borderRadius: BorderRadius.circular(50),
-              child: Row(
-                children: [
-                  Text(
-                    'Weekly',
-                    style: TextStyle(fontSize: 10, color: AppColors.white),
-                  ),
-                  SizedBox(width: 5),
-                  Assets.images.svg.icDropdown.svg(width: 15, height: 15, color: AppColors.white)
-                ],
-              ),
-            )
-          ],
-        ),
-        SizedBox(height: 15),
+        SizedBox(height: 30),
         SizedBox(
           height: 180,
           child: LineChart(
@@ -65,7 +40,8 @@ class _WorkoutProgressState extends State<WorkoutProgress> {
                     FlSpot(6, 66),
                   ],
                   dotData: FlDotData(show: false),
-                  gradient: AppGradient.blueGradient,
+                  color: widget.lightTheme ? AppColors.border : null,
+                  gradient: widget.lightTheme ? null : AppGradient.blueGradient,
                   isCurved: true,
                 ),
                 LineChartBarData(
@@ -113,17 +89,6 @@ class _WorkoutProgressState extends State<WorkoutProgress> {
                   ),
                 ),
               ),
-              // lineTouchData: LineTouchData(
-              //   touchTooltipData: LineTouchTooltipData(
-              //     getTooltipItems: (spots) {
-              //       return spots
-              //           .map(
-              //             (e) => LineTooltipItem(e.x.toString(), TextStyle()),
-              //           )
-              //           .toList();
-              //     },
-              //   ),
-              // ),
             ),
           ),
         )
@@ -132,7 +97,7 @@ class _WorkoutProgressState extends State<WorkoutProgress> {
   }
 
   Widget rightTitleWidgets(double value, TitleMeta meta) {
-    final style = TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.grayDark);
+    final style = TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: widget.lightTheme ? AppColors.white : AppColors.grayDark);
     if (value % 10 != 0) {
       return Container();
     }
@@ -149,7 +114,7 @@ class _WorkoutProgressState extends State<WorkoutProgress> {
   }
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
-    final style = TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.grayDark);
+    final style = TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: widget.lightTheme ? AppColors.white : AppColors.grayDark);
     if (value % 1 != 0) {
       return Container();
     }

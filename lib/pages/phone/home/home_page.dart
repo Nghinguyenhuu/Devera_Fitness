@@ -31,6 +31,31 @@ class _HomePageState extends State<HomePage> {
               buildBanner(),
               buildTodayTarget(),
               ActivityStatus(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                      child: Text(
+                    'Workout Progress',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  )),
+                  AppButton(
+                    padding: EdgeInsets.all(10),
+                    borderRadius: BorderRadius.circular(50),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Weekly',
+                          style: TextStyle(fontSize: 10, color: AppColors.white),
+                        ),
+                        SizedBox(width: 5),
+                        Assets.images.svg.icDropdown.svg(width: 15, height: 15, color: AppColors.white)
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 15),
               WorkoutProgress(),
               LatestWorkout(),
             ],
