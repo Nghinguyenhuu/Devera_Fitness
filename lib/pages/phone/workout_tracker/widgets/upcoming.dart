@@ -68,7 +68,10 @@ class UpcomingWorkout extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
             ),
-            child: Image.asset(activity.image ?? ''),
+            child: Image.asset(
+              activity.image ?? '',
+              errorBuilder: (_, __, ___) => SizedBox(),
+            ),
           ),
           SizedBox(width: 15),
           Expanded(

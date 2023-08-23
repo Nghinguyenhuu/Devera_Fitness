@@ -1,10 +1,10 @@
+import 'package:devera_fitness/extensions/date_extension.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../../data/data.dart';
-import '../../../../extensions/extensions.dart';
-import '../../../../gen/assets.gen.dart';
-import '../../../../resources/colors.dart';
-import '../../../pages.dart';
+import '../../../../../../data/models/workout_model.dart';
+import '../../../../../../gen/assets.gen.dart';
+import '../../../../../../resources/colors.dart';
+import '../../widget/app_header.dart';
 
 class ExercisesSection extends StatelessWidget {
   final List<ExercisesModel>? exercises;

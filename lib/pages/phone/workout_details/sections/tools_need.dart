@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../data/data.dart';
-import '../../../../resources/colors.dart';
+import '../../../../../../data/models/workout_model.dart';
+import '../../../../../../resources/colors.dart';
 import '../../widget/app_header.dart';
 
 class NeedToolsSection extends StatelessWidget {
@@ -52,7 +52,10 @@ class NeedToolsSection extends StatelessWidget {
             color: AppColors.border,
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Image.asset(tools.image ?? ''),
+          child: Image.asset(
+            tools.image ?? '',
+            errorBuilder: (_, __, ___) => SizedBox(),
+          ),
         ),
         SizedBox(height: 5),
         Text(

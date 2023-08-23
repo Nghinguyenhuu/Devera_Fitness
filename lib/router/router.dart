@@ -29,6 +29,8 @@ class Routes {
 
   static String get workoutDetails => '/workoutDetails';
 
+  static String get startWorkout => '/startWorkout';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     try {

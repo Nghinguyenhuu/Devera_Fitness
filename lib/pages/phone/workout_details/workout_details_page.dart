@@ -1,11 +1,12 @@
-import 'package:devera_fitness/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../../data/data.dart';
-import '../../../gen/assets.gen.dart';
-import '../../../resources/colors.dart';
-import '../../../resources/gradient.dart';
-import '../../pages.dart';
+import '../../../../../data/models/workout_model.dart';
+import '../../../../../gen/assets.gen.dart';
+import '../../../../../resources/colors.dart';
+import '../../../../../resources/gradient.dart';
+import '../../../../../router/router.dart';
+import '../../../../../widgets/app_button.dart';
+import '../widget/custom_app_bar.dart';
 import 'sections/sections.dart';
 
 class WorkoutDetailsPage extends StatefulWidget {
@@ -68,6 +69,9 @@ class _WorkoutDetailsPageState extends State<WorkoutDetailsPage> {
                 alignment: Alignment.bottomCenter,
                 child: IntrinsicHeight(
                   child: AppButton(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.startWorkout);
+                    },
                     child: Text(
                       'Start Workout',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.white),

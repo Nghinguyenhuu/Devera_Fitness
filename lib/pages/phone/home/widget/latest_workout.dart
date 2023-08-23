@@ -65,7 +65,7 @@ class _LatestWorkoutState extends State<LatestWorkout> {
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Row(
         children: [
-          Image.asset(model.image ?? ''),
+          if (model.image != null) Image.asset(model.image!),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),

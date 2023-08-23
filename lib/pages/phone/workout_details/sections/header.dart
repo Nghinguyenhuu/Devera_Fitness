@@ -1,11 +1,11 @@
+import 'package:devera_fitness/extensions/date_extension.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../../data/data.dart';
-import '../../../../extensions/date_extension.dart';
-import '../../../../gen/assets.gen.dart';
-import '../../../../resources/colors.dart';
-import '../../../../resources/gradient.dart';
-import '../../../../resources/shadow.dart';
+import '../../../../../../data/models/workout_model.dart';
+import '../../../../../../gen/assets.gen.dart';
+import '../../../../../../resources/colors.dart';
+import '../../../../../../resources/gradient.dart';
+import '../../../../../../resources/shadow.dart';
 
 class Header extends StatelessWidget {
   final WorkoutModel workout;

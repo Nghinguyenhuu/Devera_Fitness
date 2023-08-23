@@ -92,14 +92,11 @@ class _WantToTrainState extends State<WantToTrain> {
               ],
             ),
           ),
-          SizedBox(
-            width: 100,
-            height: 100,
-            child: Image.asset(
-              workout.image ?? '',
+          if (workout.image != null)
+            Image.asset(
+              workout.image!,
               fit: BoxFit.contain,
-            ),
-          )
+            )
         ],
       ),
     );
