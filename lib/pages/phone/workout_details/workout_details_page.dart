@@ -1,3 +1,4 @@
+import 'package:devera_fitness/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/data.dart';
@@ -51,15 +52,32 @@ class _WorkoutDetailsPageState extends State<WorkoutDetailsPage> {
 
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              buildAppBar(),
-              Header(workout: workout),
-              NeedToolsSection(workout: workout),
-              ExercisesSection(exercises: workout.sets),
-            ],
-          ),
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  buildAppBar(),
+                  Header(workout: workout),
+                  NeedToolsSection(workout: workout),
+                  ExercisesSection(exercises: workout.sets),
+                ],
+              ),
+            ),
+            Align(
+                alignment: Alignment.bottomCenter,
+                child: IntrinsicHeight(
+                  child: AppButton(
+                    child: Text(
+                      'Start Workout',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.white),
+                    ),
+                    padding: EdgeInsets.all(15),
+                    margin: EdgeInsets.all(30),
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                ))
+          ],
         ),
       ),
     );

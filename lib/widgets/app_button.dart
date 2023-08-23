@@ -6,6 +6,7 @@ class AppButton extends StatelessWidget {
   final Widget child;
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   final Gradient? gradient;
   final Function()? onTap;
 
@@ -16,6 +17,7 @@ class AppButton extends StatelessWidget {
     this.borderRadius,
     this.onTap,
     this.gradient,
+    this.margin,
   });
 
   @override
@@ -36,6 +38,7 @@ class AppButton extends StatelessWidget {
         ),
         alignment: Alignment.center,
         padding: padding,
+        margin: margin,
         child: child,
       ),
     );
