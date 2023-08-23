@@ -1,20 +1,26 @@
-import 'package:devera_fitness/data/data.dart';
-import 'package:devera_fitness/resources/gradient.dart';
-import 'package:devera_fitness/widgets/gradient_text.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../data/data.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../../resources/colors.dart';
+import '../../../../resources/gradient.dart';
+import '../../../../router/router.dart';
+import '../../../../widgets/gradient_text.dart';
 
-class WantToTrain extends StatelessWidget {
+class WantToTrain extends StatefulWidget {
   const WantToTrain({super.key});
 
   @override
+  State<WantToTrain> createState() => _WantToTrainState();
+}
+
+class _WantToTrainState extends State<WantToTrain> {
+  @override
   Widget build(BuildContext context) {
-    var exercises = [
-      ExercisesModel(name: 'Fullbody Workout', quantities: 11, minutes: 32, image: Assets.images.png.imgWorkout1.path),
-      ExercisesModel(name: 'Lowebody Workout', quantities: 12, minutes: 40, image: Assets.images.png.imgWorkout2.path),
-      ExercisesModel(name: 'AB Workout', quantities: 14, minutes: 20, image: Assets.images.png.imgWorkout3.path),
+    var workouts = [
+      WorkoutModel(name: 'Fullbody Workout', minutes: 32, image: Assets.images.png.imgWorkout1.path),
+      WorkoutModel(name: 'Lowebody Workout', minutes: 40, image: Assets.images.png.imgWorkout2.path),
+      WorkoutModel(name: 'AB Workout', minutes: 20, image: Assets.images.png.imgWorkout3.path),
     ];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
@@ -28,20 +34,20 @@ class WantToTrain extends StatelessWidget {
           SizedBox(height: 15),
           ListView.separated(
             itemBuilder: (context, index) {
-              return buildExercises(exercises[index]);
+              return buildExercises(workouts[index]);
             },
             separatorBuilder: (context, index) {
               return SizedBox(height: 15);
             },
             shrinkWrap: true,
-            itemCount: exercises.length,
+            itemCount: workouts.length,
           )
         ],
       ),
     );
   }
 
-  Widget buildExercises(ExercisesModel exercises) {
+  Widget buildExercises(WorkoutModel workout) {
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -56,16 +62,19 @@ class WantToTrain extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  exercises.name,
+                  workout.name ?? '',
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "${exercises.quantities} Exercises| ${exercises.minutes} Minutes",
+                  "${workout.sets?.length ?? 0} Exercises | ${workout.minutes ?? 0} Minutes",
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.grayDark),
                 ),
                 SizedBox(height: 15),
                 InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.workoutDetails);
+                  },
                   borderRadius: BorderRadius.circular(50),
                   child: Container(
                     decoration: BoxDecoration(
@@ -87,7 +96,7 @@ class WantToTrain extends StatelessWidget {
             width: 100,
             height: 100,
             child: Image.asset(
-              exercises.image,
+              workout.image ?? '',
               fit: BoxFit.contain,
             ),
           )

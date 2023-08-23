@@ -79,13 +79,14 @@ class _WorkoutTrackerPageState extends State<WorkoutTrackerPage> {
       child: Row(
         children: [
           Expanded(
-              child: Text(
-            'Daily Workout Schedule',
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 14,
+            child: Text(
+              'Daily Workout Schedule',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+              ),
             ),
-          )),
+          ),
           AppButton(
             onTap: () {},
             padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),

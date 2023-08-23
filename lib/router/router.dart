@@ -27,6 +27,8 @@ class Routes {
 
   static String get workoutTracker => '/workoutTracker';
 
+  static String get workoutDetails => '/workoutDetails';
+
   static getRoute(RouteSettings settings) {
     Widget widget;
     try {

@@ -15,4 +15,9 @@ class AppGradient {
     AppColors.brandDark,
     AppColors.secondaryDark,
   ]);
+
+  static LinearGradient blue20 = LinearGradient(colors: [
+    AppColors.brandLight.withOpacity(0.2),
+    AppColors.brandDark.withOpacity(0.2),
+  ]);
 }

@@ -18,9 +18,9 @@ class LatestWorkout extends StatefulWidget {
 
 class _LatestWorkoutState extends State<LatestWorkout> {
   List<WorkoutModel> workouts = [
-    WorkoutModel(name: 'Fullbody Workout', caloriesBurn: 180, minutes: 20, progress: 0.4, img: Assets.images.png.imgWorkout1.path),
-    WorkoutModel(name: 'Lowerbody Workout', caloriesBurn: 200, minutes: 30, progress: 0.2, img: Assets.images.png.imgWorkout2.path),
-    WorkoutModel(name: 'Ab Workout', caloriesBurn: 180, minutes: 20, progress: 0.3, img: Assets.images.png.imgWorkout3.path),
+    WorkoutModel(name: 'Fullbody Workout', caloriesBurn: 180, minutes: 20, progress: 0.4, image: Assets.images.png.imgWorkout1.path),
+    WorkoutModel(name: 'Lowerbody Workout', caloriesBurn: 200, minutes: 30, progress: 0.2, image: Assets.images.png.imgWorkout2.path),
+    WorkoutModel(name: 'Ab Workout', caloriesBurn: 180, minutes: 20, progress: 0.3, image: Assets.images.png.imgWorkout3.path),
   ];
 
   @override
@@ -65,7 +65,7 @@ class _LatestWorkoutState extends State<LatestWorkout> {
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Row(
         children: [
-          Image.asset(model.img ?? ''),
+          Image.asset(model.image ?? ''),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),

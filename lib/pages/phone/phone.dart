@@ -8,4 +8,5 @@ export 'register_profile/register_profile.dart';
 export 'sign_up/sign_up.dart';
 export 'splash/splash.dart';
 export 'widget/widgets.dart';
+export 'workout_details/workout_details.dart';
 export 'workout_tracker/workout_tracker.dart';
