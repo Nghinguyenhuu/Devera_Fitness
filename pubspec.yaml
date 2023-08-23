@@ -130,7 +130,6 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   assets:
-    - assets/cfg/
     - assets/images/png/
     - assets/images/svg/
     - assets/fonts/

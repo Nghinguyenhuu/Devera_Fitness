@@ -57,20 +57,18 @@ class ExercisesSection extends StatelessWidget {
   Widget buildExercisesCard(ExercisesModel exercises) {
     return Row(
       children: [
-        Container(
-          width: 60,
-          height: 60,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: AppColors.gray,
+        if (exercises.image != null)
+          Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: AppColors.gray,
+            ),
+            child: Image.asset(
+              exercises.image!,
+            ),
           ),
-          child: Image.asset(
-            exercises.image ?? '',
-            errorBuilder: (context, _, __) {
-              return SizedBox();
-            },
-          ),
-        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
