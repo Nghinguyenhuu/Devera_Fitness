@@ -1,5 +1,6 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../../resources/colors.dart';
 import '../../../resources/gradient.dart';
@@ -27,46 +28,64 @@ class CustomStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GradientText(
-          '0${currentStep + 1}',
-          gradient: AppGradient.purpleGradient,
-          style: TextStyle(fontSize: 14, height: 1.5),
-          textAlign: TextAlign.center,
+        SizedBox(
+          width: 21,
+          child: GradientText(
+            '0${currentStep + 1}',
+            gradient: AppGradient.purpleGradient,
+            style: TextStyle(fontSize: 14, height: 1.5),
+            textAlign: TextAlign.center,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Container(
-                    width: 20,
-                    height: 20,
-                    decoration: BoxDecoration(
-                      gradient: AppGradient.purpleGradient,
-                      shape: BoxShape.circle,
-                      boxShadow: [AppShadow.purpleShadow],
-                    ),
-                  ),
-                  Text(
-                    title ?? 'dsadsads',
-                    style: TextStyle(),
-                  )
-                ],
+              Container(
+                width: 21,
+                height: 21,
+                decoration: BoxDecoration(
+                  gradient: AppGradient.purpleGradient,
+                  shape: BoxShape.circle,
+                  boxShadow: [AppShadow.purpleShadow],
+                ),
               ),
-              DottedLine(
-                direction: Axis.vertical,
-                lineLength: 50,
-                dashLength: 5,
-                dashGradient: [
-                  AppColors.secondaryLight,
-                  AppColors.secondaryDark,
-                ],
-                dashGapLength: 5,
-              )
+              if (isDottedLine)
+                DottedLine(
+                  direction: Axis.vertical,
+                  lineLength: 50,
+                  dashLength: 5,
+                  dashGradient: [
+                    AppColors.secondaryLight,
+                    AppColors.secondaryDark,
+                  ],
+                  dashGapLength: 5,
+                )
+            ],
+          ),
+        ),
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title ?? 'dsadsads',
+                style: titleStyle ??
+                    TextStyle(
+                      fontSize: 14,
+                      height: 1.5,
+                    ),
+              ),
+              SizedBox(height: 5),
+              Text(
+                subTitle ?? 'dsadsads',
+                style: subTitleStyle ?? TextStyle(fontSize: 12, height: 1.5, color: AppColors.grayDark),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
             ],
           ),
         ),

@@ -85,7 +85,8 @@ dependencies:
 
   #stepper
   easy_stepper: ^0.7.2
-
+  #vertical_scrollable_tabview:
+  vertical_card_pager: ^1.5.0
 
 
 dev_dependencies:

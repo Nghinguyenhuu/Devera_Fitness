@@ -1,8 +1,10 @@
-import 'package:devera_fitness/pages/phone/widget/custom_step.dart';
-import 'package:devera_fitness/widgets/app_button.dart';
+import 'package:devera_fitness/pages/phone/start_workout/custom_repetitions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../gen/assets.gen.dart';
 import '../../../resources/colors.dart';
+import '../../../widgets/app_button.dart';
+import '../widget/custom_step.dart';
 import '../widget/widgets.dart';
 
 class StartWorkoutPage extends StatefulWidget {
@@ -13,6 +15,19 @@ class StartWorkoutPage extends StatefulWidget {
 }
 
 class _StartWorkoutPageState extends State<StartWorkoutPage> {
+  List<String> listTitle = [
+    'Spread Your Arms',
+    'Rest at The Toe',
+    'Adjust Foot Movement',
+    'Clapping Both Hands',
+  ];
+  List<String> listSubTitle = [
+    'To make the gestures feel more relaxed, stretch your arms as you start this movement. No bending of hands.',
+    'The basis of this movement is jumping. Now, what needs to be considered is that you have to use the tips of your feet',
+    'Jumping Jack is not just an ordinary jump. But, you also have to pay close attention to leg movements.',
+    'This cannot be taken lightly. You see, without realizing it, the clapping of your hands helps you to keep your rhythm while doing the Jumping Jack',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +39,13 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
               padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [CustomAppBar(title: ''), buildVideoTutorial(), buildDescription(), buildHowDoIt()],
+                children: [
+                  CustomAppBar(title: ''),
+                  buildVideoTutorial(),
+                  buildDescription(),
+                  buildHowDoIt(),
+                  CustomRepetitions(),
+                ],
               ),
             ),
             Align(
@@ -50,12 +71,17 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Assets.images.png.imgWorkoutDetailsVideo.image(fit: BoxFit.cover),
+          ),
           Text(
             'Jumping Jack',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
+          SizedBox(height: 5),
           Text('Easy | 390 Calories Burn', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.grayDark))
         ],
       ),
@@ -93,28 +119,21 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
             title: 'How To Do It',
             subTitle: '4 Steps',
           ),
+          SizedBox(height: 16),
           ListView.builder(
             itemBuilder: (context, index) {
-              return buildStep(currentStep: index, title: 'dsad', subTitle: 'sadsa');
+              return CustomStep(
+                currentStep: index,
+                title: listTitle[index],
+                subTitle: listSubTitle[index],
+                isDottedLine: index < listTitle.length - 1,
+              );
             },
-            itemCount: 4,
+            itemCount: listTitle.length,
             shrinkWrap: true,
           )
         ],
       ),
-    );
-  }
-
-  buildStep({required int currentStep, required String title, required String subTitle}) {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-            children: [CustomStep(currentStep: currentStep)],
-          ),
-        )
-      ],
     );
   }
 }

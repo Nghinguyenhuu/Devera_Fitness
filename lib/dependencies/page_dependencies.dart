@@ -20,5 +20,6 @@ class PageDependencies {
     injector.registerFactory<Widget>(() => WorkoutTrackerPage(), instanceName: Routes.workoutTracker);
     injector.registerFactory<Widget>(() => WorkoutDetailsPage(), instanceName: Routes.workoutDetails);
     injector.registerFactory<Widget>(() => StartWorkoutPage(), instanceName: Routes.startWorkout);
+    injector.registerFactory<Widget>(() => ProgressPhoto(), instanceName: Routes.progressPhoto);
   }
 }
