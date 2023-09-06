@@ -76,7 +76,7 @@ class ToolModel {
 class ExercisesModel {
   String? name;
   String? image;
-  DateTime? timer;
+  Duration? timer;
   bool? isTimer;
   int? quantity;
   List<ExercisesModel>? exercises;
@@ -85,7 +85,7 @@ class ExercisesModel {
 
   ExercisesModel.fromJson(Map<String, dynamic> json) {
     name = json['name'];
-    timer = json['timer']?.toString().convertToDateTime();
+    timer = json['timer'];
     image = json['image'];
     quantity = json['quantity'];
     isTimer = json['isTimer'];
@@ -101,7 +101,7 @@ class ExercisesModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['name'] = this.name;
-    data['timer'] = this.timer.convertDateTimeToString();
+    data['timer'] = this.timer;
     data['image'] = this.image;
     data['isTimer'] = this.isTimer;
     data['quantity'] = this.quantity;

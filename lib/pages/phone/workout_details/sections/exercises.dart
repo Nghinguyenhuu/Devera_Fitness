@@ -1,4 +1,4 @@
-import 'package:devera_fitness/extensions/date_extension.dart';
+import 'package:devera_fitness/extensions/extensions.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../../../../data/models/workout_model.dart';
@@ -57,18 +57,19 @@ class ExercisesSection extends StatelessWidget {
   Widget buildExercisesCard(ExercisesModel exercises) {
     return Row(
       children: [
-        if (exercises.image != null)
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: AppColors.gray,
-            ),
-            child: Image.asset(
-              exercises.image!,
-            ),
+        Container(
+          width: 60,
+          height: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: AppColors.border,
           ),
+          child: exercises.image != null
+              ? Image.asset(
+                  exercises.image!,
+                )
+              : null,
+        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -78,7 +79,7 @@ class ExercisesSection extends StatelessWidget {
                 Text(exercises.name ?? ''),
                 SizedBox(height: 5),
                 if (exercises.isTimer == true)
-                  Text("${exercises.timer?.convertDateTimeToString(fromPattern: "mm:ss Minutes")}",
+                  Text("${exercises.timer?.formatDurationInMmSs()}",
                       style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.grayDark))
                 else
                   Text(

@@ -7,7 +7,12 @@ import '../router/router.dart';
 class PageDependencies {
   static Future setup(GetIt injector) async {
     injector.registerFactory<Widget>(() => SplashPage(injector()), instanceName: Routes.splash);
-    injector.registerFactory<Widget>(() => HomePage(), instanceName: Routes.home);
+    injector.registerFactory<Widget>(
+        () => HomePage(
+              activityBloc: injector(),
+            ),
+        instanceName: Routes.home);
+    injector.registerFactory<Widget>(() => HomeTabPage(), instanceName: Routes.homeTab);
     injector.registerFactory<Widget>(() => OnBoardingPage(), instanceName: Routes.onBoarding);
     injector.registerFactory<Widget>(() => SignUpPage(), instanceName: Routes.signUp);
     injector.registerFactory<Widget>(() => RegisterProfilePage(), instanceName: Routes.registerProfile);
@@ -21,5 +26,6 @@ class PageDependencies {
     injector.registerFactory<Widget>(() => WorkoutDetailsPage(), instanceName: Routes.workoutDetails);
     injector.registerFactory<Widget>(() => StartWorkoutPage(), instanceName: Routes.startWorkout);
     injector.registerFactory<Widget>(() => ProgressPhoto(), instanceName: Routes.progressPhoto);
+    injector.registerFactory<Widget>(() => SleepTrackerPage(), instanceName: Routes.sleepTracker);
   }
 }

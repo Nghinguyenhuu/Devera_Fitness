@@ -9,6 +9,8 @@ class Routes {
 
   static String get home => '/home';
 
+  static String get homeTab => '/homeTab';
+
   static String get signUp => '/signUp';
 
   static String get registerProfile => '/registerProfile';
@@ -32,6 +34,8 @@ class Routes {
   static String get startWorkout => '/startWorkout';
 
   static String get progressPhoto => '/progressPhoto';
+
+  static String get sleepTracker => '/sleepTracker';
 
   static getRoute(RouteSettings settings) {
     Widget widget;

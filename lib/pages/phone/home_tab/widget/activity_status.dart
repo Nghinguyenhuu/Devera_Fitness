@@ -9,6 +9,7 @@ import '../../../../gen/assets.gen.dart';
 import '../../../../resources/colors.dart';
 import '../../../../resources/gradient.dart';
 import '../../../../resources/shadow.dart';
+import '../../../../router/router.dart';
 import '../../../../widgets/gradient_text.dart';
 
 class ActivityStatus extends StatefulWidget {
@@ -296,35 +297,41 @@ class _ActivityStatusState extends State<ActivityStatus> {
   }
 
   Widget buildSleep() {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: AppColors.white,
-        boxShadow: [AppShadow.cardShadow],
-      ),
-      padding: EdgeInsets.only(top: 20, bottom: 5, left: 20, right: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            'Sleep',
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-          ),
-          SizedBox(height: 5),
-          Text(
-            '8h 20m',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              foreground: Paint()
-                ..shader = AppGradient.blueGradient.createShader(
-                  Rect.fromLTWH(0, 0, 20, 24),
-                ),
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, Routes.sleepTracker);
+      },
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: AppColors.white,
+          boxShadow: [AppShadow.cardShadow],
+        ),
+        padding: EdgeInsets.only(top: 20, bottom: 5, left: 20, right: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              'Sleep',
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
             ),
-          ),
-          SizedBox(height: 5),
-          SizedBox(height: 78, child: Assets.images.png.imgSleepGraph.image(fit: BoxFit.cover))
-        ],
+            SizedBox(height: 5),
+            Text(
+              '8h 20m',
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                foreground: Paint()
+                  ..shader = AppGradient.blueGradient.createShader(
+                    Rect.fromLTWH(0, 0, 20, 24),
+                  ),
+              ),
+            ),
+            SizedBox(height: 5),
+            SizedBox(height: 78, child: Assets.images.png.imgSleepGraph.image(fit: BoxFit.cover))
+          ],
+        ),
       ),
     );
   }

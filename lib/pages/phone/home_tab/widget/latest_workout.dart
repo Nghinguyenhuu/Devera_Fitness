@@ -6,6 +6,7 @@ import '../../../../gen/assets.gen.dart';
 import '../../../../resources/colors.dart';
 import '../../../../resources/gradient.dart';
 import '../../../../resources/shadow.dart';
+import '../../../../router/router.dart';
 import '../../../../widgets/ink_well_wrapper.dart';
 import '../../../pages.dart';
 
@@ -93,7 +94,9 @@ class _LatestWorkoutState extends State<LatestWorkout> {
             ),
           ),
           InkWellWrapper(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, Routes.workoutDetails, arguments: model.toJson());
+            },
             borderRadius: BorderRadius.circular(12),
             child: Container(
               height: 24,

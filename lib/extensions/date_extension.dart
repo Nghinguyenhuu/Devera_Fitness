@@ -9,3 +9,15 @@ extension DateExtension on DateTime? {
     return '';
   }
 }
+
+extension DurationExtension on Duration? {
+  String formatDurationInMmSs() {
+    String mm = '';
+    String ss = '';
+    if (this != null) {
+      mm = (this!.inMinutes % 60).toString().padLeft(2, '0');
+      ss = (this!.inSeconds % 60).toString().padLeft(2, '0');
+    }
+    return '$mm:$ss';
+  }
+}

@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                 onTap: () {
                   if (_key.currentState?.validate() == true) {
                     errorStream.add(false);
-                    Navigator.of(context).pushReplacementNamed(Routes.home);
+                    Navigator.of(context).pushReplacementNamed(Routes.homeTab);
                   } else {
                     errorStream.add(true);
                   }

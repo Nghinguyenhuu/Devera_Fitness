@@ -44,7 +44,7 @@ class _RegisterSuccessPageState extends State<RegisterSuccessPage> {
               )),
               AppButton(
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, Routes.home);
+                    Navigator.pushReplacementNamed(context, Routes.homeTab);
                   },
                   borderRadius: BorderRadius.circular(100),
                   padding: EdgeInsets.symmetric(vertical: 18),

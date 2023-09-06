@@ -25,10 +25,11 @@ class _WorkoutDetailsPageState extends State<WorkoutDetailsPage> {
   ], sets: [
     ExercisesModel(
       exercises: [
-        ExercisesModel(name: "Warn up"),
-        ExercisesModel(name: "Warn up"),
-        ExercisesModel(name: "Warn up"),
-        ExercisesModel(name: "Warn up"),
+        ExercisesModel(name: "Warn up", timer: Duration(minutes: 5), isTimer: true),
+        ExercisesModel(name: "Jumping Jack", quantity: 12),
+        ExercisesModel(name: "Skipping", quantity: 15),
+        ExercisesModel(name: "Squats", quantity: 20),
+        ExercisesModel(name: "Arm Raises", timer: Duration(seconds: 53), isTimer: true),
       ],
     ),
     ExercisesModel(
