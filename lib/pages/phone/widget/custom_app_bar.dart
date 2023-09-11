@@ -7,8 +7,9 @@ import '../../../widgets/ink_well_wrapper.dart';
 class CustomAppBar extends StatelessWidget {
   final String title;
   final bool lightTheme;
+  final bool hasPopContext;
 
-  const CustomAppBar({super.key, required this.title, this.lightTheme = false});
+  const CustomAppBar({super.key, required this.title, this.lightTheme = false, this.hasPopContext = true});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +22,11 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       children: [
         InkWellWrapper(
-            onTap: () {
-              Navigator.pop(context);
-            },
+            onTap: hasPopContext
+                ? () {
+                    Navigator.pop(context);
+                  }
+                : null,
             width: 36,
             height: 36,
             color: buttonColor,

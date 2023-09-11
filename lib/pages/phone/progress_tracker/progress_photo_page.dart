@@ -18,9 +18,25 @@ class _ProgressPhotoState extends State<ProgressPhoto> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+          padding: EdgeInsets.symmetric(vertical: 40),
           child: Column(
-            children: [CustomAppBar(title: 'Progress Photo'), SizedBox(height: 15), buildBanner(), compareMyPhoto(), buildGallery()],
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  children: [
+                    CustomAppBar(
+                      title: 'Progress Photo',
+                      hasPopContext: false,
+                    ),
+                    SizedBox(height: 15),
+                    buildBanner(),
+                    compareMyPhoto(),
+                  ],
+                ),
+              ),
+              buildGallery(),
+            ],
           ),
         ),
       ),
@@ -143,9 +159,22 @@ class _ProgressPhotoState extends State<ProgressPhoto> {
   }
 
   buildGallery() {
-    var size = (MediaQuery.of(context).size.width - 60) / 3;
+    List<String> imagesBefore = [
+      Assets.images.png.imgFrontFacing.path,
+      Assets.images.png.imgBackFacingBefore.path,
+      Assets.images.png.imgLeftFacingBefore.path,
+      Assets.images.png.imgRightFacingBefore.path,
+    ];
+    List<String> imagesAfter = [
+      Assets.images.png.imgFrontFacingAfter.path,
+      Assets.images.png.imgBackFacingAfter.path,
+      Assets.images.png.imgLeftFacingAfter.path,
+      Assets.images.png.imgRightFacingAfter.path,
+    ];
+
+    var size = (MediaQuery.of(context).size.width - 75) / 3;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15),
+      padding: const EdgeInsets.only(left: 30, top: 15, bottom: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -168,13 +197,19 @@ class _ProgressPhotoState extends State<ProgressPhoto> {
                     width: size,
                     height: size,
                     decoration: BoxDecoration(color: AppColors.border, borderRadius: BorderRadius.circular(20)),
+                    child: Image.asset(
+                      imagesBefore[index],
+                      width: size,
+                      height: size,
+                      fit: BoxFit.contain,
+                    ),
                   );
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(width: 10);
                 },
                 shrinkWrap: true,
-                itemCount: 5,
+                itemCount: imagesBefore.length,
                 scrollDirection: Axis.horizontal,
               ),
             ),
@@ -194,13 +229,19 @@ class _ProgressPhotoState extends State<ProgressPhoto> {
                     width: size,
                     height: size,
                     decoration: BoxDecoration(color: AppColors.border, borderRadius: BorderRadius.circular(20)),
+                    child: Image.asset(
+                      imagesAfter[index],
+                      width: size,
+                      height: size,
+                      fit: BoxFit.contain,
+                    ),
                   );
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(width: 10);
                 },
                 shrinkWrap: true,
-                itemCount: 5,
+                itemCount: imagesAfter.length,
                 scrollDirection: Axis.horizontal,
               ),
             ),

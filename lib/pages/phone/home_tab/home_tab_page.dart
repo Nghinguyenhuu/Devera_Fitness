@@ -167,7 +167,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
   Widget buildTodayTarget() {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, Routes.activity);
+        Navigator.pushNamed(context, Routes.activity, arguments: 'canPop');
       },
       child: Container(
         decoration: BoxDecoration(
