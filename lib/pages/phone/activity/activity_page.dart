@@ -58,12 +58,9 @@ class _ActivityTrackerPageState extends BaseState<ActivityTrackerPage, ActivityB
   }
 
   Widget _buildAppBar() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30),
-      child: CustomAppBar(
-        title: 'Activity Tracker',
-        hasPopContext: canPop,
-      ),
+    return CustomAppBar(
+      title: 'Activity Tracker',
+      hasPopContext: canPop,
     );
   }
 

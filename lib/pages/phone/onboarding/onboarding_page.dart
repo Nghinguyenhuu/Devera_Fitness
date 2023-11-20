@@ -70,25 +70,23 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   Widget build(BuildContext context) {
     initData();
     return Scaffold(
-      body: SafeArea(
-        child: PageView.builder(
-          allowImplicitScrolling: true,
-          controller: controller,
-          itemBuilder: (context, index) {
-            if (index < titles.length - 1) {
-              return OnBoardingView(
-                title: titles[index],
-                subtitle: subtitles[index],
-                image: images[index],
-                onTap: _nextPage,
-              );
-            }
-            return buildGetStarted();
-          },
-          itemCount: 4,
-          physics: NeverScrollableScrollPhysics(),
-          pageSnapping: false,
-        ),
+      body: PageView.builder(
+        allowImplicitScrolling: true,
+        controller: controller,
+        itemBuilder: (context, index) {
+          if (index < titles.length - 1) {
+            return OnBoardingView(
+              title: titles[index],
+              subtitle: subtitles[index],
+              image: images[index],
+              onTap: _nextPage,
+            );
+          }
+          return buildGetStarted();
+        },
+        itemCount: 4,
+        physics: NeverScrollableScrollPhysics(),
+        pageSnapping: false,
       ),
     );
   }
@@ -117,8 +115,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             ),
             AppButton(
               padding: EdgeInsets.symmetric(vertical: 18),
-              onTap: (){
-                Navigator.of(context).pushReplacementNamed(Routes.signUp);
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed(Routes.login);
               },
               borderRadius: BorderRadius.circular(100),
               child: Text(

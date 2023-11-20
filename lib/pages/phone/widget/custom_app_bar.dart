@@ -21,22 +21,21 @@ class CustomAppBar extends StatelessWidget {
     }
     return Row(
       children: [
-        InkWellWrapper(
-            onTap: hasPopContext
-                ? () {
-                    Navigator.pop(context);
-                  }
-                : null,
-            width: 36,
-            height: 36,
-            color: buttonColor,
-            borderRadius: BorderRadius.circular(8),
-            paddingChild: EdgeInsets.all(8),
-            child: Assets.images.svg.icBack.svg(
-              width: 16,
-              height: 16,
-              color: AppColors.black,
-            )),
+        if (hasPopContext)
+          InkWellWrapper(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              width: 36,
+              height: 36,
+              color: buttonColor,
+              borderRadius: BorderRadius.circular(8),
+              paddingChild: EdgeInsets.all(8),
+              child: Assets.images.svg.icBack.svg(
+                width: 16,
+                height: 16,
+                color: AppColors.black,
+              )),
         Expanded(
           child: Text(
             title,
@@ -44,18 +43,19 @@ class CustomAppBar extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        InkWellWrapper(
-          width: 36,
-          height: 36,
-          color: buttonColor,
-          borderRadius: BorderRadius.circular(8),
-          paddingChild: EdgeInsets.symmetric(vertical: 16, horizontal: 13),
-          child: Assets.images.svg.icDetails.svg(
-            width: 10,
-            height: 4,
-            color: AppColors.black,
+        if (hasPopContext)
+          InkWellWrapper(
+            width: 36,
+            height: 36,
+            color: buttonColor,
+            borderRadius: BorderRadius.circular(8),
+            paddingChild: EdgeInsets.symmetric(vertical: 16, horizontal: 13),
+            child: Assets.images.svg.icDetails.svg(
+              width: 10,
+              height: 4,
+              color: AppColors.black,
+            ),
           ),
-        ),
       ],
     );
   }

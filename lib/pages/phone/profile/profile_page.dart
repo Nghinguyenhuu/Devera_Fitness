@@ -14,7 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 30),
           child: Column(
             children: [
               _buildAppBar(),
@@ -28,12 +28,9 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _buildAppBar() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15),
-      child: CustomAppBar(
-        title: 'Profile',
-        hasPopContext: false,
-      ),
+    return CustomAppBar(
+      title: 'Profile',
+      hasPopContext: false,
     );
   }
 }

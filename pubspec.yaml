@@ -60,7 +60,7 @@ dependencies:
   azlistview: ^2.0.0
 
   # WebView
-  flutter_inappwebview: ^5.7.2+3
+#  flutter_inappwebview: ^5.7.2+3
 
   # Collection package
   # Use to compare two list of simple data types

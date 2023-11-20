@@ -24,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
@@ -86,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 onTap: () {
                   if (_key.currentState?.validate() == true) {
                     errorStream.add(false);
-                    Navigator.of(context).pushReplacementNamed(Routes.homeTab);
+                    Navigator.of(context).pushReplacementNamed(Routes.home);
                   } else {
                     errorStream.add(true);
                   }
@@ -137,9 +138,9 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Expanded(
               child: Container(
-                height: 1,
-                color: AppColors.grayLight,
-              )),
+            height: 1,
+            color: AppColors.grayLight,
+          )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Text(
@@ -149,9 +150,9 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Expanded(
               child: Container(
-                height: 1,
-                color: AppColors.grayLight,
-              )),
+            height: 1,
+            color: AppColors.grayLight,
+          )),
         ],
       ),
     );
@@ -193,13 +194,8 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.pushReplacementNamed(context, Routes.signUp);
           },
           child: Text(
-            'Register',
-            style: theme.textTheme.labelLarge?.copyWith(
-              foreground: Paint()
-                ..shader = AppGradient.purpleGradient.createShader(
-                  Rect.fromLTWH(0, 0, 20, 24),
-                ),
-            ),
+            ' Register',
+            style: theme.textTheme.labelLarge?.copyWith(color: AppColors.secondaryDark),
           ),
         ),
       ],

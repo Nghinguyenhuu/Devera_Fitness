@@ -29,11 +29,13 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 'Hey there,',
@@ -75,7 +77,6 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 150),
               Assets.images.svg.icGoogle.svg(),
               AppButton(
                 onTap: () {
@@ -125,9 +126,9 @@ class _SignUpPageState extends State<SignUpPage> {
         children: [
           Expanded(
               child: Container(
-                height: 1,
-                color: AppColors.grayLight,
-              )),
+            height: 1,
+            color: AppColors.grayLight,
+          )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Text(
@@ -137,9 +138,9 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           Expanded(
               child: Container(
-                height: 1,
-                color: AppColors.grayLight,
-              )),
+            height: 1,
+            color: AppColors.grayLight,
+          )),
         ],
       ),
     );
@@ -181,12 +182,9 @@ class _SignUpPageState extends State<SignUpPage> {
             Navigator.pushReplacementNamed(context, Routes.login);
           },
           child: Text(
-            'Login',
+            ' Login',
             style: theme.textTheme.labelLarge?.copyWith(
-              foreground: Paint()
-                ..shader = AppGradient.purpleGradient.createShader(
-                  Rect.fromLTWH(0, 0, 20, 24),
-                ),
+              color: AppColors.secondaryDark,
             ),
           ),
         ),

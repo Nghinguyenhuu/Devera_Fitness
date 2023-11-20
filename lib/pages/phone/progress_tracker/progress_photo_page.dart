@@ -18,7 +18,6 @@ class _ProgressPhotoState extends State<ProgressPhoto> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(vertical: 40),
           child: Column(
             children: [
               Padding(

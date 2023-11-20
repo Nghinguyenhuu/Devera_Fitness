@@ -80,11 +80,12 @@ class _HomePageState extends State<HomePage> {
             label: '',
           ),
         ],
-        height: 80,
+        height: 48,
         elevation: 8,
         backgroundColor: AppColors.white,
         indicatorColor: Colors.white,
         selectedIndex: currentIndex,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         onDestinationSelected: (int index) {
           if (index != currentIndex) {
             setState(() {
