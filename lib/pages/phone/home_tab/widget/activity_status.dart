@@ -1,9 +1,12 @@
 import 'dart:math';
 
 import 'package:collection/collection.dart';
+import 'package:devera_fitness/blocs/blocs.dart';
+import 'package:devera_fitness/data/data.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../resources/colors.dart';
@@ -24,88 +27,87 @@ class _ActivityStatusState extends State<ActivityStatus> {
 
   List<double> subTitle = [0.6, 0.5, 1, 0.7];
   List<int> heartRate = [
-    137,
-    117,
-    91,
-    126,
-    76,
-    136,
-    135,
-    89,
-    81,
-    117,
-    125,
-    101,
-    98,
-    127,
-    146,
-    139,
-    141,
-    113,
-    101,
-    125,
-    142,
-    86,
-    127,
-    143,
-    120,
-    138,
-    131,
-    87,
-    117,
-    96,
-    86,
-    75,
-    132,
-    132,
-    140,
-    137,
-    87,
-    119,
-    114,
-    140,
-    95,
-    138,
     100,
-    140,
-    114,
-    133,
-    98,
-    120,
-    141,
-    136,
-    85,
-    83,
-    96,
-    107,
-    111,
-    126,
-    103,
-    138,
-    117,
-    84,
-    84,
-    114,
-    93,
-    117,
-    76,
-    104,
-    115,
-    136,
-    130,
-    97,
+    100,
+    100,
+    105,
     80,
-    125,
-    136,
-    146,
-    148,
     126,
-    111,
-    132,
-    99,
-    103,
-    92
+    95,
+    110,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    105,
+    80,
+    126,
+    95,
+    110,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    105,
+    80,
+    126,
+    95,
+    110,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    105,
+    80,
+    126,
+    95,
+    110,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    105,
+    80,
+    126,
+    95,
+    110,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    100,
+    105,
+    80,
+    126,
+    95,
+    110,
+    100,
+    100,
+    100,
+    100,
   ];
+
+  HeartRateBloc bloc = GetIt.I();
+
+  @override
+  void initState() {
+    super.initState();
+    bloc.loadData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +124,11 @@ class _ActivityStatusState extends State<ActivityStatus> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          buildHeartRate(),
+          StreamBuilder<List<HeartRateModel>?>(
+              stream: bloc.heartRatesStream,
+              builder: (context, snapshot) {
+                return buildHeartRate(snapshot.data?.last);
+              }),
           SizedBox(
             height: 315,
             child: Row(
@@ -393,7 +399,7 @@ class _ActivityStatusState extends State<ActivityStatus> {
     );
   }
 
-  Widget buildHeartRate() {
+  Widget buildHeartRate(HeartRateModel? _heartRate) {
     return Container(
       height: 150,
       margin: EdgeInsets.symmetric(vertical: 15),
@@ -417,7 +423,7 @@ class _ActivityStatusState extends State<ActivityStatus> {
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                 ),
                 GradientText(
-                  '${heartRate.average.ceil()} BPM',
+                  '${_heartRate?.averRate ?? 0} BPM',
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                   gradient: AppGradient.blueGradient,
                 )

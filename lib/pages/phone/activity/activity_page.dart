@@ -21,7 +21,6 @@ class _ActivityTrackerPageState extends BaseState<ActivityTrackerPage, ActivityB
   @override
   void initState() {
     super.initState();
-    bloc.loadData();
   }
 
   @override

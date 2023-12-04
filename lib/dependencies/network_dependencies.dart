@@ -12,14 +12,11 @@ class NetworkDependencies {
 
     // network utility for request
     injector.registerLazySingleton<INetworkUtility>(
-          () => NetworkUtility(
-        /// TODO: Add BASE_URL when server is available
-        // 'BASE_URL',
-        '',
+      () => NetworkUtility(
+        'https://firestore.googleapis.com/v1/projects/yoll-afab3/databases/(default)/documents',
         interceptors: [authorizationInterceptor],
       ),
       instanceName: NetworkConstant.authorizationDomain,
     );
   }
 }
-

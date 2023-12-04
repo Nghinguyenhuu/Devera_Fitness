@@ -1,0 +1,125 @@
+{
+  "project_info": {
+    "project_number": "220899103161",
+    "firebase_url": "https://yoll-afab3-default-rtdb.firebaseio.com",
+    "project_id": "yoll-afab3",
+    "storage_bucket": "yoll-afab3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220899103161:android:32c930ac203758a7f92668",
+        "android_client_info": {
+          "package_name": "com.example.devera_fitness"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrSlDjbCpsL7K-S-yEiZss8dOwOMQrDlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220899103161:android:179a0b850ad61ba5f92668",
+        "android_client_info": {
+          "package_name": "com.example.heart_database_realtofiire"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrSlDjbCpsL7K-S-yEiZss8dOwOMQrDlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220899103161:android:4f84fde493184029f92668",
+        "android_client_info": {
+          "package_name": "com.example.lab1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrSlDjbCpsL7K-S-yEiZss8dOwOMQrDlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220899103161:android:ca4e1c624c964362f92668",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrSlDjbCpsL7K-S-yEiZss8dOwOMQrDlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220899103161:android:1fa017a59632e786f92668",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrSlDjbCpsL7K-S-yEiZss8dOwOMQrDlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220899103161:android:c8165816d1cbc224f92668",
+        "android_client_info": {
+          "package_name": "com.example.yoll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrSlDjbCpsL7K-S-yEiZss8dOwOMQrDlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

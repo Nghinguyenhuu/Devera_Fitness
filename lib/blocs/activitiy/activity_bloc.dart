@@ -6,8 +6,9 @@ import '../blocs.dart';
 
 class ActivityBloc extends BaseBloc<ActivityState> {
   final IActivityRepository repository;
+  final IHeartRateRepository heartRateRepository;
 
-  ActivityBloc(this.repository);
+  ActivityBloc(this.repository, this.heartRateRepository);
 
   Stream<bool?> get successStream => stateStream.map((event) => event.success).distinct();
 
@@ -20,6 +21,17 @@ class ActivityBloc extends BaseBloc<ActivityState> {
           (fail) => emit(ActivityState(state: state, error: fail.toString())),
           (data) => emit(ActivityState(state: state, activities: data.activities)),
         ));
+  }
+
+  Future<void> getHeartRate() async {
+    heartRateRepository.getResponse().then(
+          (value) => value.fold(
+            (fail) => null,
+            (data) {
+              print(data.data?.first.toJson());
+            },
+          ),
+        );
   }
 
   @override

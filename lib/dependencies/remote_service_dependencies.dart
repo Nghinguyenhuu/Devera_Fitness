@@ -6,5 +6,6 @@ class RemoteServiceDependencies {
   static Future setup(GetIt injector) async {
     injector.registerFactory<ISplashRemoteService>(() => SplashRemoteService());
     injector.registerFactory<IActivityRemoteService>(() => ActivityRemoteService());
+    injector.registerFactory<IHeartRateRemoteService>(() => HeartRateRemoteService());
   }
 }

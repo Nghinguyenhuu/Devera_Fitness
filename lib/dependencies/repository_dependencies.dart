@@ -10,5 +10,6 @@ class RepositoryDependencies {
           networkInfo: injector(),
         ));
     injector.registerFactory<IActivityRepository>(() => ActivityRepository(remoteService: injector()));
+    injector.registerFactory<IHeartRateRepository>(() => HeartRateRepository(networkInfo: injector(), remoteService: injector()));
   }
 }

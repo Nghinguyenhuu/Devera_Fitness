@@ -82,7 +82,8 @@ dependencies:
 
   dotted_line: ^3.2.2
 
-
+#  firebase_core: ^2.24.0
+#  cloud_firestore: ^4.13.3
   #stepper
   easy_stepper: ^0.7.2
 
