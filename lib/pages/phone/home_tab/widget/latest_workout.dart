@@ -47,6 +47,7 @@ class _LatestWorkoutState extends State<LatestWorkout> {
         ),
         SizedBox(height: 15),
         ListView.separated(
+          physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             return buildWorkoutItem(workouts[index]);
           },

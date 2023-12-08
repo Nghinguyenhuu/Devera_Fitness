@@ -59,6 +59,7 @@ class _LatestActivityState extends State<LatestActivity> {
             separatorBuilder: (BuildContext context, int index) {
               return SizedBox(height: 10);
             },
+            physics: NeverScrollableScrollPhysics(),
             itemCount: isSeeMore ? 2 : 5,
             shrinkWrap: true,
           ),

@@ -19,6 +19,7 @@ class ExercisesSection extends StatelessWidget {
         children: [
           AppHeader(title: 'Exercises', subTitle: '${exercises?.length ?? 0} Sets'),
           ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,6 +51,7 @@ class ExercisesSection extends StatelessWidget {
         return SizedBox(height: 15);
       },
       shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
       itemCount: sets.exercises?.length ?? 0,
     );
   }

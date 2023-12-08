@@ -37,6 +37,7 @@ class _NotificationPageState extends BaseState<NotificationPage, NotificationBlo
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return ListView.separated(
+                        physics: NeverScrollableScrollPhysics(),
                         padding: EdgeInsets.symmetric(horizontal: 30),
                         itemBuilder: (context, index) {
                           return buildNotificationItem(snapshot.data![index]);

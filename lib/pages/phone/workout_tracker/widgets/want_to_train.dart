@@ -23,7 +23,7 @@ class _WantToTrainState extends State<WantToTrain> {
       WorkoutModel(name: 'AB Workout', minutes: 20, image: Assets.images.png.imgWorkout3.path),
     ];
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      padding: const EdgeInsets.symmetric(vertical: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -33,6 +33,7 @@ class _WantToTrainState extends State<WantToTrain> {
           ),
           SizedBox(height: 15),
           ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               return buildExercises(workouts[index]);
             },

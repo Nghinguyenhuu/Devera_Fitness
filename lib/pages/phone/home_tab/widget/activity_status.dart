@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:collection/collection.dart';
 import 'package:devera_fitness/blocs/blocs.dart';
 import 'package:devera_fitness/data/data.dart';
+import 'package:devera_fitness/pages/phone/heart_rate/heart_rate_page.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import '../../../../resources/colors.dart';
 import '../../../../resources/gradient.dart';
 import '../../../../resources/shadow.dart';
 import '../../../../router/router.dart';
+import '../../../../widgets/app_button.dart';
 import '../../../../widgets/gradient_text.dart';
 
 class ActivityStatus extends StatefulWidget {
@@ -413,22 +415,54 @@ class _ActivityStatusState extends State<ActivityStatus> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 20, left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Heart rate',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Heart rate',
+                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                    ),
+                    GradientText(
+                      '${_heartRate?.averRate ?? 0} BPM',
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                      gradient: AppGradient.blueGradient,
+                    )
+                  ],
                 ),
-                GradientText(
-                  '${_heartRate?.averRate ?? 0} BPM',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                  gradient: AppGradient.blueGradient,
-                )
-              ],
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 20, top: 15),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HeartRatePage(
+                                  heartRates: bloc.state?.heartRates,
+                                )));
+                  },
+                  borderRadius: BorderRadius.circular(50),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: AppColors.white,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    child: GradientText(
+                      'View More',
+                      gradient: AppGradient.blueGradient,
+                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           Expanded(
             child: LineChart(

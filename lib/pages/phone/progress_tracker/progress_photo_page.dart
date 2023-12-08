@@ -191,6 +191,7 @@ class _ProgressPhotoState extends State<ProgressPhoto> {
             child: SizedBox(
               height: size,
               child: ListView.separated(
+                physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Container(
                     width: size,
@@ -240,6 +241,7 @@ class _ProgressPhotoState extends State<ProgressPhoto> {
                   return SizedBox(width: 10);
                 },
                 shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
                 itemCount: imagesAfter.length,
                 scrollDirection: Axis.horizontal,
               ),
